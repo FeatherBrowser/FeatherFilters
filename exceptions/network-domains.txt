@@ -1,0 +1,2 @@
+# One hostname per line.
+# This file intentionally starts empty. Compatibility exceptions can be added here.
