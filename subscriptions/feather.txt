@@ -1,0 +1,38 @@
+! Feather Filters 2.0
+! Feather-specific network and cosmetic rules
+
+||doubleclick.net^
+||googlesyndication.com^
+||googleadservices.com^
+||adnxs.com^
+||amazon-adsystem.com^
+||taboola.com^
+||outbrain.com^
+||criteo.com^
+||criteo.net^
+
+||google-analytics.com^$third-party
+||googletagmanager.com^$third-party
+||stats.g.doubleclick.net^$third-party
+||connect.facebook.net^$third-party
+||analytics.twitter.com^$third-party
+
+##.adsbygoogle
+##[data-ad]
+##[data-ad-slot]
+##[data-ad-unit]
+##[aria-label="Advertisement"]
+##[aria-label="Sponsored"]
+##[class~="advertisement"]
+##[class~="ad-container"]
+##[class~="ads-container"]
+##[class*="ad-banner" i]
+##[class*="ad-wrapper" i]
+##[class*="ad-unit" i]
+##[class*="sponsored" i]
+##[class*="promoted" i]
+
+##iframe[src*="doubleclick.net"]
+##iframe[src*="googlesyndication.com"]
+##iframe[src*="taboola"]
+##iframe[src*="outbrain"]
