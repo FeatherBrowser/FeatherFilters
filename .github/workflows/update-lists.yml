@@ -1,0 +1,43 @@
+name: Update third-party lists
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-lists
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Refresh lists
+        run: python scripts/update_lists.py
+      - name: Validate
+        run: python scripts/validate.py
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/update-lists
+          delete-branch: true
+          commit-message: Update third-party filter lists
+          title: Update third-party filter lists
+          body: |
+            Automated refresh of EasyList, EasyPrivacy, uBlock filters and uBlock Quick fixes
+            by `scripts/update_lists.py` (scheduled weekly by `.github/workflows/update-lists.yml`).
+
+            The script expands uBlock `!#include` lines, skips the mobile-only sub-list, and refuses to
+            write a list that is empty, has no `! Title:` line, keeps an `!#include`, or lost more than
+            half of its rules.
+          add-paths: subscriptions/*.txt
