@@ -36,3 +36,5 @@
 ##iframe[src*="googlesyndication.com"]
 ##iframe[src*="taboola"]
 ##iframe[src*="outbrain"]
+/ads.js$script
+/pagead.js$script
