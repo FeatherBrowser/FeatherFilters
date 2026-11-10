@@ -17,6 +17,9 @@
 ||connect.facebook.net^$third-party
 ||analytics.twitter.com^$third-party
 
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js
+||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,redirect=google-ima.js
+
 ##.adsbygoogle
 ##[data-ad]
 ##[data-ad-slot]
